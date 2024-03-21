@@ -2,7 +2,7 @@ import sqlite3
 import time
 
 conexao = sqlite3.connect('tabela.db')
-conexao.execute('CREATE TABLE IF NOT EXISTS tabelaBr(id INTEGER PRIMARY KEY AUTOINCREMENT, nome text, pontos integer, vitorias integer, empates integer, derrotas integer, jogos integer, golsMarcados integer, golsSofridos integer, saldoGols integer, aproveitamento deci0mal)')
+conexao.execute('CREATE TABLE IF NOT EXISTS tabelaBr(id INTEGER PRIMARY KEY AUTOINCREMENT, nome text, pontos integer, vitorias integer, empates integer, derrotas integer, jogos integer, golsMarcados integer, golsSofridos integer, saldoGols integer, aproveitamento decimal)')
 
 def enviaDados():
     nome = input('Digite o nome do time: ')
@@ -71,5 +71,9 @@ def menu():
         print('Encerrando o programa...')
         time.sleep(3)
         exit()
+    else:
+        print('Opção Inválida...')
+        time.sleep(3)
+        menu()
 
 menu()
