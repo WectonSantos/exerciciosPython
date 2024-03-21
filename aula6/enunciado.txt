@@ -1,0 +1,24 @@
+Elabore um Script para a confecção de um banco de dados referente à pontuação de um
+campeonato de futebol. Inicialmente a tabela deve conter os seguintes dados:
+• Identificação: inteiro (chave primária autoincrementada)
+• Clube : texto
+• Pontos : inteiro
+• Vitorias: inteiro
+• Empates : inteiro
+• Jogos : inteiro
+• Gols Marcados: inteiro
+• Gols Sofridos : inteiro
+• Saldo de Gols: inteiro
+• Aproveitamento: decimal
+
+Crie um menu, que seja executado repetidamente, com as seguintes opções:
+1. Inserção – solicita os valores para serem inseridos no banco de dados. Os valores de
+Pontos, Saldo de Gols e aproveitamento não devem ser digitados devem ser calculados
+com base nos demais valores.
+2. Pesquisa Clube – solicita o nome do clube e, quando encontrado, retorna todos os
+valores do mesmo.
+3. Pontuação – solicita um valor de referência de pontos e exibe todos os clubes que
+tenham pontuação igual ou superior a indicada.
+4. Aproveitamento – solicita um valor de referência e exibe todos os clubes que tenham
+aproveitamento igual ou superior ao indicado.
+5. Sair – encerra o programa
