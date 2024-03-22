@@ -75,5 +75,6 @@ def menu():
         print('Opção Inválida...')
         time.sleep(3)
         menu()
+        
 
 menu()
