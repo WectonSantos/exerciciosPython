@@ -1,0 +1,43 @@
+<Tela>:
+    orientation: 'vertical'
+    padding: 20
+    spacing: 6
+    canvas:
+        Color:
+            rgba: [1,0,0,1]
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    BoxLayout:
+        canvas:
+            Color:
+                rgba: [0,1,0,1]
+            Rectangle:
+                size: self.size
+                pos: self.pos
+            Label:
+                text: 'dig'
+                font_size: 60
+    BoxLayout:
+        size_hint_y: None
+        height: 45
+        ToggleButton:
+            id: tgBt1
+            font_size: 25
+            text: '1'
+            group: 'grupo'
+            state: 'down'
+            on_press: lbl1.text = '1'
+
+    BoxLayout:
+        id: box2
+        canvas:
+            Color:
+                rgba: [0,0,1,1]
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            id: lbl1
+            text: '0'
+            font_size: 60
