@@ -1,0 +1,68 @@
+<Tela>:
+    orientation: 'vertical'
+    id: pagLay
+    border: 0
+    val:0
+
+    BoxLayout:
+        orientation: 'horizontal'
+        Slider:
+            id: sld
+            min: 0
+            max: 4
+            step: 1
+            on_value: root.val = sld.value
+            value_track: True
+        
+    PageLayout:
+        page: int(sld.value)
+        border:0
+        BoxLayout:
+            canvas:
+                Color:
+                    rgba: 0,0,1,1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            AsyncImage:
+                source:'https://portalaluno.unisanta.br/imagens/logo-portal-aluno-horizontal.png'
+            Label:
+                text:'Logotipo Portal do Aluno'
+            
+                
+        BoxLayout:
+            canvas:
+                Color:
+                    rgba: 0,0,1,1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            AsyncImage:
+                source:'https://imagens.unisanta.br/logos/logo.jpg'
+            Label:
+                text:'Logotipo Unisanta'
+            
+        BoxLayout:
+            canvas:
+                Color:
+                    rgba: 0,0,1,1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            AsyncImage:
+                source:'https://noticias.unisanta.br/wp-content/uploads/2018/04/fachada.jpg'
+            Label:
+                text:'Fachada Unisanta'
+                
+        BoxLayout:
+            canvas:
+                Color:
+                    rgba: 0,0,1,1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            AsyncImage:
+                source: 'https://noticias.unisanta.br/wp-content/uploads/2022/02/Im1-1.jpg'
+            Label:
+                text:'Quadra Unisanta'
+

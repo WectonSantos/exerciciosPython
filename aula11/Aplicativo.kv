@@ -1,0 +1,171 @@
+<Tela>:
+    id: scTela
+    orientation: 'vertical'
+    padding: 20
+    canvas.before:
+        Color:
+            rgba: 0.8,0.8,0.8,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Screen:
+        name: 'telaInicial'
+        BoxLayout:
+            BoxLayout:
+                orientation: 'vertical'
+                text: ''
+            BoxLayout:
+                orientation: 'vertical'
+                Image:
+                    source: 'avengers.png'
+                Button:
+                    id: btnIncluir
+                    text: 'INCLUIR'
+                    background_color: (0,0,1,1)
+                    on_press: scTela.current = 'telaIncluir'
+                Button:
+                    id: btnPesquisar
+                    text: 'PESQUISAR'
+                    background_color: (0,0,1,1)
+                    on_press: scTela.current = 'telaPesquisa'
+                Button:
+                    id: btnFechar
+                    text: 'FECHAR'
+                    background_color: (0,1,0,1)
+                    on_press: app.stop()
+            BoxLayout:
+                text: ''
+
+    Screen:
+        canvas.before:
+            Color:
+                rgba: 0,0.8,0.8,1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        name: 'telaIncluir'
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 20
+            spacing: 10
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: 'Inclusão de Dados'
+                    color: 0,0,1,1
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 10
+                size_hint_y: None
+                height: 40
+                Label:
+                    text: 'Nome'
+                    size_hint_x: None
+                    width: 50
+                TextInput:
+                    id: txtNome
+                    font_size: 20
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 10
+                ToggleButton:
+                    id: masculino
+                    text: 'Masculino'
+                    group: 'inclusao'
+                    on_press: feminino.state = 'normal' if self.state == 'down' else 'normal'
+                ToggleButton:
+                    id: feminino
+                    text: 'Feminino'
+                    group: 'inclusao'
+                    on_press: masculino.state = 'normal' if self.state == 'down' else 'normal'
+            BoxLayout:
+                orientation: 'horizontal'
+                spacing: 10
+                size_hint_y: None
+                height: 40
+                Label:
+                    text: 'Idade'
+                    size_hint_x: None
+                    width: 50
+                TextInput:
+                    id: txtIdade
+                    font_size: 20
+            BoxLayout:
+                size_hint_y: None
+                height: 60
+                Button:
+                    id: btnVoltar
+                    text: 'VOLTAR'
+                    on_press: scTela.current = 'telaInicial'
+                    background_color: (0,0,1,1)
+                Button:
+                    id: btnAdd
+                    text: 'ADICIONAR'
+                    on_press: app.guardar(txtNome.text, 'M' if masculino.state == 'down' else 'F', txtIdade.text)
+                    background_color: (0,0.7,0,1)
+
+    Screen:
+        name: 'telaPesquisa'
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 20
+            spacing: 10
+            Label:
+                text: 'Pesquisa de Dados'
+                color: 0,0,1,1
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: 60
+                spacing: 10
+                ToggleButton:
+                    text: 'Masculino'
+                    group: 'pesquisa'
+                    id: btnMasculino
+                ToggleButton:
+                    text: 'Feminino'
+                    group: 'pesquisa'
+                    id: btnFeminino
+                ToggleButton:
+                    text: 'Qualquer'
+                    group: 'pesquisa'
+                    id: btnQualquer
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                height: 40
+                spacing: 10
+                Label:
+                    text: 'IDADE MIN:'
+                TextInput:
+                    id: txtIdadeMinima
+                    font_size: 20
+                    height: 40
+                Label:
+                    text: 'MAX:'
+                TextInput:
+                    id: txtIdadeMaxima
+                    font_size: 20
+                    height: 40
+            Button:
+                text: 'PESQUISAR'
+                background_color: (0,0.7,0,1)
+                size_hint_y: None
+                height: 60
+                pos_hint: {"center_x": 0.5}
+                on_press: app.mostrar(boxMostrar, [btnMasculino.state, btnFeminino.state, btnQualquer.state], txtIdadeMinima.text, txtIdadeMaxima.text)
+            ScrollView:
+                BoxLayout:
+                    id: boxMostrar
+                    size_hint_y: None
+                    orientation: 'vertical'
+                    height: self.minimum_height
+            BoxLayout:
+                size_hint_y: None
+                height: 60
+                Button:
+                    background_color: (0,0,0.4,1)
+                    text: 'Inicio'
+                    size_hint_x: None
+                    width: 200
+                    on_press: scTela.current = 'telaInicial'
